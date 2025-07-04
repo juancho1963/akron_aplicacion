@@ -99,7 +99,7 @@
 
                             <div class="form-floating mb-3"> <!-- Descuento -->
                               <input type="number" class="form-control @error('descuento') is-invalid @enderror" name="descuento"
-                                id="floatingInput" placeholder="descuento"p
+                                id="floatingInput" placeholder="descuento"
                                 value="{{ $produ->descuento, old('descuento')}}">
                               <label for="floatingInput">Descuento</label>
                               @error('descuento')
