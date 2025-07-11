@@ -20,4 +20,5 @@ class Produ extends Model
     public function marcas() {
         return $this->belongsToMany(Marca::class); //metodo mucho a muchos
     }
+
 }
