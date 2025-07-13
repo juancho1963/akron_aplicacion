@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import ProdusList from './produs/ProdusList'
 import { axiosRequest } from './helpers/config'
 import { useDebounce } from 'use-debounce'
+import Alert from './layouts/Alert'
+import Spinner from './layouts/Spinner'
 
 export default function Home() {
     const [produs, setProdus] = useState([])
@@ -25,23 +27,28 @@ export default function Home() {
     useEffect(() => {
         const fetchAllProdus = async () => {
             setMessage('')
+            setLoading(true)
             try {
                 if(selectMarca) {
                     const response = await axiosRequest.get(`produs/${selectMarca}/marca`)
                     setProdus(response.data.data)
                     setMarcas(response.data.marcas)
+                    setLoading(false)
                 }else if (debouncedSearchTerm[0]) {
                     const response = await axiosRequest.get(`produs/${searchTerm}/find`)
                     if(response.data.data.length > 0) {
                         setProdus(response.data.data)
                         setMarcas(response.data.marcas)
+                        setLoading(false)
                     }else{
                         setMessage('Lo sentimos, no hemos encontrado productos que coincidan con tu busqueda.')
+                        setLoading(false)
                     }
                 }else{
                     const response = await axiosRequest.get('produs')
                     setProdus(response.data.data)
                     setMarcas(response.data.marcas)
+                    setLoading(false)
                 }
 
             } catch (error) {
@@ -105,11 +112,10 @@ export default function Home() {
                 </div>
                 {
                     message ?
-                    <div className='alert alert-info'>
-                        {
-                            message
-                        }
-                    </div>
+                    <Alert type="primary" content={message}/>
+                    :
+                    loading ?
+                    <Spinner/>
                     :
                     <ProdusList produs={produs}/>  
                 }
