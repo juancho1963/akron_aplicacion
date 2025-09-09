@@ -24,6 +24,11 @@ class ProduResource extends JsonResource
             'descuento' => $this->descuento,
             'marcas' => $this->marcas,
             'foto' => asset($this->foto),
+            'foto2' =>$this->foto2? asset( $this->foto2) :null,
+            'foto3' =>$this->foto3? asset( $this->foto3) :null,
+            'foto4' =>$this->foto4? asset( $this->foto4) :null,
+
+
         ];
     }
 }

@@ -129,6 +129,64 @@
                                 heigh="100">
                             </div>
 
+                            <div class="mb-3"> <!-- foto2 -->
+                                <label for="foto2" class="my-2 text-black">Segunda foto</label>
+                                <input type="file" class="form-control
+                                @error('foto2') is-invalid @enderror" name="foto2"
+                                id="foto2">
+
+                                @error('foto2')
+                                    <span class="invalid-feedback">
+                                        <strong>{{$message}}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mt-2"> <!--vista previa Segunda foto-->
+                                <img src="{{ asset($produ->foto2) }}" id="foto2_preview"
+                                class="@if(!$produ->foto2) d-none @endif
+                                img-fluid rounded mb-2"
+                                width="100"
+                                heigh="100">
+                            </div>
+                            <div class="mb-3"> <!--foto3 -->
+                                <label for="foto3" class="my-2 text-black">Tercera foto</label>
+                                <input type="file" class="form-control
+                                @error('foto3') is-invalid @enderror" name="foto3"
+                                id="foto3">
+
+                                @error('foto3')
+                                    <span class="invalid-feedback">
+                                        <strong>{{$message}}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mt-2"> <!--vista previa Tercera foto-->
+                                <img src="{{ asset($produ->foto3) }}" id="foto3_preview"
+                                class="@if(!$produ->foto3) d-none @endif
+                                img-fluid rounded mb-2"
+                                width="100"
+                                heigh="100">
+                            </div>
+                            <div class="mb-3"> <!-- foto4 -->
+                                <label for="foto4" class="my-2 text-black">Cuarta foto</label>
+                                <input type="file" class="form-control
+                                @error('foto4') is-invalid @enderror" name="foto4"
+                                id="foto4">
+
+                                @error('foto4')
+                                    <span class="invalid-feedback">
+                                        <strong>{{$message}}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mt-2"> <!--vista previa Cuarta foto-->
+                                <img src="{{ asset($produ->foto4) }}" id="foto4_preview"
+                                class="@if(!$produ->foto4) d-none @endif  img-fluid rounded mb-2"
+                                width="100"
+                                heigh="100">
+                            </div>
+
+
                             @foreach ($errors->all() as $error)
                                 <div>{{ $error }}</div>
                             @endforeach

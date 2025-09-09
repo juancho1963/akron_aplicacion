@@ -11,7 +11,7 @@ class Produ extends Model
 
     protected $fillable =['indice', 'referencia', 'descripcion',
                             'cantidad', 'precio', 'descuento',
-                            'foto'];
+                            'foto', 'foto2', 'foto3', 'foto4'];
 
     public function pedids() {
         return $this->belongsToMany(Pedid::class); //metodo mucho a muchos

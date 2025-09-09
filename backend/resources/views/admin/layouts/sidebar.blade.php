@@ -19,9 +19,9 @@
                     </a>
                 </li>
                                 <li class="nav-item">
-                    <a class="nav-link text-white d-flex align-items-center gap-2" aria-current="page" href="">
+                    <a class="nav-link text-white d-flex align-items-center gap-2" aria-current="page" href="{{ route('admin.cupons.index')}}">
                         <i class="fas fa-expand"></i>
-                       Comentarios
+                       Cupones
                     </a>
                 </li>
                <li class="nav-item">

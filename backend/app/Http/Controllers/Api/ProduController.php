@@ -18,6 +18,9 @@ class ProduController extends Controller
     }
 
     public function show(Produ $produ) {
+        if(!$produ) {
+            abort(404);
+        }
         return ProduResource::make(
             $produ->load(['marcas'])
         );

@@ -94,6 +94,9 @@
             });
         }
         handleImageInputChanged('foto', 'foto_preview');
+        handleImageInputChanged('foto2', 'foto2_preview');
+        handleImageInputChanged('foto3', 'foto3_preview');
+        handleImageInputChanged('foto4', 'foto4_preview');
 
     </script>
 </html>

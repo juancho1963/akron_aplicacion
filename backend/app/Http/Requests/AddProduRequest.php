@@ -30,6 +30,9 @@ class AddProduRequest extends FormRequest
             'precio'=> 'required|numeric',
             'descuento' => 'required|numeric',
             'foto'=> 'required|image|mimes:png,jpg,jpeg|max:2048',
+            'foto2'=> 'image|mimes:png,jpg,jpeg|max:2048',
+            'foto3'=> 'image|mimes:png,jpg,jpeg|max:2048',
+            'foto4'=> 'image|mimes:png,jpg,jpeg|max:2048',
         ];
     }
 
@@ -62,6 +65,20 @@ class AddProduRequest extends FormRequest
             'foto.image'=> 'La imagen de la foto debe de ser una imagen.',
             'foto.mimes'=> 'La imagen de la foto debe de ser un archivo de tipo: png,jpg,jpeg.',
             'foto.max'=> 'La imagen de la foto no puede excedeer los 2MB.',
+
+            'foto2.image'=> 'La segunda imagen debe de ser una imagen.',
+            'foto2.mimes'=> 'La segunda imagen debe de ser un archivo de tipo: png,jpg,jpeg.',
+            'foto2.max'=> 'La segunda imagen no puede excedeer los 2MB.',
+
+            'foto3.image'=> 'La tercera imagen debe de ser una imagen.',
+            'foto3.mimes'=> 'La tercera imagen debe de ser un archivo de tipo: png,jpg,jpeg.',
+            'foto3.max'=> 'La tercera imagen no puede excedeer los 2MB.',
+
+            'foto4.image'=> 'La cuarta imagen debe de ser una imagen.',
+            'foto4.mimes'=> 'La cuarta imagen debe de ser un archivo de tipo: png,jpg,jpeg.',
+            'foto4.max'=> 'La cuarta imagen no puede excedeer los 2MB.',
+
+
         ];
     }
 

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
      export default function ProduListItem({ produ }) {
         return( 
           <div className='col-md-4 mb-3'>
-               <Link className='text-decoration-none text-dark'>
+               <Link to={`/produ/${produ.id}`} className='text-decoration-none text-dark'>
                     <div className='card shadow-sm h-100'>
                          <img src={produ.foto} alt={produ.indice}
                               className='card-img-top' />

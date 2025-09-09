@@ -51,6 +51,25 @@
                                     <img src="{{ asset($produ->foto) }}" alt="{{ $produ->indice}}"
                                         class="img-fluid rounded mb-1 border border-muted"
                                         width="30" height="30">
+
+                                    @if($produ->foto2)
+                                    <img src="{{ asset($produ->foto2) }}" alt="{{ $produ->name}}"
+                                        class="img-fluid rounded mb-1"
+                                        width="30" height="30">
+                                    @endif
+
+                                    @if($produ->foto3)
+                                    <img src="{{ asset($produ->foto3) }}" alt="{{ $produ->name}}"
+                                        class="img-fluid rounded mb-1"
+                                        width="30" height="30">
+                                    @endif
+
+                                    @if($produ->foto4)
+                                    <img src="{{ asset($produ->foto4) }}" alt="{{ $produ->name}}"
+                                        class="img-fluid rounded mb-1"
+                                        width="30" height="30">
+                                    @endif
+
                                 </div>
                             </td>
                             <td>
