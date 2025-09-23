@@ -20,7 +20,7 @@ class User extends Authenticatable
      */
     protected $fillable = ['name', 'email', 'password',
                         'direcUser', 'zPostalUser', 'docIdenUser',
-                        'numTelefoUser', 'datoCompleUser'];
+                        'numTelefoUser','profile_image', 'datoCompleUser'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -44,10 +44,18 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-         //funcion ordenes del usuario 1:n
+    //funcion ordenes del usuario 1:n
     public function pedids() {
         return $this->hasMany(Pedid::class) //metodo uno a muchos
             ->with('produs')
             ->latest(); //organizar por fecha
+    }
+    //funcion devolve url y foto del perfil del usuario
+    public function image_path(){
+        if($this->profile_image) {
+            return asset($this->profile_image);
+        }else{
+            return 'https://img.icons8.com/?size=100&id=13042&format=png&color=000000';
+        }
     }
 }

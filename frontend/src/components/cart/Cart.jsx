@@ -7,8 +7,9 @@ import { Link } from 'react-router-dom'
 export default function Cart() {
         const { cartItems } = useSelector(state => state.cart)
         const dispatch = useDispatch()
-        const total = cartItems.reduce((acc, item) => acc += item.precio * item.cantidad * (100 - item.descuento) / 100,0) 
-    return (
+        const total = cartItems.reduce((acc, item) => acc += (Math.round((item.precio * item.cantidad * (100 - item.descuento) / 100)*100)/100.0),0) 
+
+        return (
         <div className='row my-4'>
             <div className='col-md-12'>
                 <div className='card'>
@@ -55,13 +56,13 @@ export default function Cart() {
                                                 ></i>
                                             </td>
                                             <td>Bs. {item.precio}</td>
-                                            <td>% {item.descuento}</td>
+                                            <td> {item.descuento} %</td>
                                             <td>
                                                 <span  className='bg-dark-subtle text-dark me-2 pe-1 ps-1 fw-bold'>
                                                     <small>{item.marca}</small>
                                                 </span>
                                             </td>
-                                            <td>Bs. {item.cantidad * item.precio * (100 - item.descuento) / 100}</td>
+                                            <td>Bs. {Math.round((item.cantidad * item.precio * (100 - item.descuento) / 100)*100)/100}</td>
                                             <td>
                                                   <i className='bi bi-trash text-dander'
                                                     onClick={() => dispatch(removeFromtCantidad(item))}
@@ -90,6 +91,18 @@ export default function Cart() {
                             />
                         }
                     </div>
+                    <div className='my-3 d-flex justify-content-end'>
+                        <Link to="/" className='btn btn-secondary rounded-2 mx-2'>
+                            Seguir comprando
+                        </Link>
+                        {
+                            cartItems.length > 0 &&
+                            <Link to="/checkout" className='btn btn-warning rounded-2 mx-'>
+                                Pagar
+                            </Link>
+                        }
+                    </div>
+
                 </div>
             </div>
         </div>

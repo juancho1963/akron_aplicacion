@@ -9,8 +9,9 @@ class Pedid extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['fechaPedido', 'fechaPagp', 'compPago',
-                            'user_id', 'factu_id'];
+    protected $fillable = ['fechaPedido', 'nameCupon', 'descuentoCupon', 'fechaPagp', 'compPago',
+                            'user_id', 'cupon_id', 'statusped', 'numTelefoUser',
+                             'direcUser','docIdenUser', 'nameUser', 'fechaFactura', 'numFactura'];
 
     public function produs() {
         return $this->belongsToMany(Produ::class); //metodo mucho a muchos
@@ -20,7 +21,4 @@ class Pedid extends Model
         return $this->belongsTo(User::class); //uno a muchos inversa
     }
 
-    public function factu() {
-        return $this->belongsTo(Factu::class); //uno a uno
-    }
 }

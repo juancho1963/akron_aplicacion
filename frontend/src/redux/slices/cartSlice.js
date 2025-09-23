@@ -4,6 +4,7 @@ import { toast } from 'react-toastify'
 const initialState = {
     cartItems: [],
     validCupon: {
+        cupon_id: '',
         name: '',
         descuento: 0
     }
@@ -16,7 +17,7 @@ export const cartSlice = createSlice({
         addToCart(state,action){
             const item = action.payload
             let produItem = state.cartItems.find(produ => produ.produ_id === item.produ_id
-                && produ.color === item.marca === item.size
+                && item.marca
             )
             if (produItem) {
                 toast.info('Este producto ya esta en tu carrito.')
