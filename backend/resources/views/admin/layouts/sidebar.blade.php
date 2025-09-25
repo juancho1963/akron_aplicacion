@@ -36,6 +36,13 @@
                        Productos
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white d-flex align-items-center gap-2" aria-current="page" href="{{ route('admin.pedids.index')}}">
+                        <i class="fas fa-cart-shopping"></i>
+                       Pedidos
+                    </a>
+                </li>
+
             </ul>
             <hr class="my-3">
             <ul class="nav flex-column mb-auto">

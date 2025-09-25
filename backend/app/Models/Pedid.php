@@ -11,7 +11,7 @@ class Pedid extends Model
 
     protected $fillable = ['fechaPedido', 'nameCupon', 'descuentoCupon', 'fechaPagp', 'compPago',
                             'user_id', 'cupon_id', 'statusped', 'numTelefoUser',
-                             'direcUser','docIdenUser', 'nameUser', 'fechaFactura', 'numFactura'];
+                             'direcUser','docIdenUser', 'nameUser', 'fechaFactura', 'numFactura','montoTotalPed'];
 
     public function produs() {
         return $this->belongsToMany(Produ::class); //metodo mucho a muchos

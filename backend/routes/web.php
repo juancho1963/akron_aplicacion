@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CuponController;
 use App\Http\Controllers\Admin\MarcaController;
+use App\Http\Controllers\Admin\PedidController;
 use App\Http\Controllers\Admin\ProduController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,5 +50,12 @@ Route::middleware('admin')->group(function() {
                 'destroy' => 'admin.produs.destroy',
             ]
         ]);
+
+    // Rutas Pedidos
+        Route::get('pedids', [PedidController::class,'index'])->name('admin.pedids.index');
+        Route::get('factura/{pedid}/pedid', [PedidController::class,'updateFacturaAtDate'])->name('admin.pedids.factura');
+        Route::get('update/{pedid}/pedid', [PedidController::class,'updateDeliveredAtDate'])->name('admin.pedids.update');
+        Route::delete('delete/{pedid}/pedid', [PedidController::class,'delete'])->name('admin.pedids.delete');
+
     });
 });

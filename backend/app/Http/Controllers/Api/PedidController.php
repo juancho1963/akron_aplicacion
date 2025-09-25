@@ -16,6 +16,9 @@ class PedidController extends Controller
 {
     public function store(Request $request) { /* //crear nuevos registros en la tabla Pedid// */
 
+        $cart= $request->produ;
+        $total = $this->calculatePedidTotalTransferencia($cart);
+
         $pedid = new Pedid([
             'user_id' => $request->user()->id,
                 /* 'cupon_id' => '1', */
@@ -27,18 +30,17 @@ class PedidController extends Controller
             'direcUser' => $request->user()->direcUser,
             'docIdenUser' => $request->user()->docIdenUser,
             'nameUser' => $request->user()->name,
-            'compPago' => 'Tarjeta'
+            'compPago' => 'Tarjeta',
+            'montoTotalPed' => $total
         ]);
 
         if ($request->tipo === 'transferencia') {
-            $cart= $request->produ;
-            $total = $this->calculatePedidTotalTransferencia($cart);
 
             if ($total == $request->compPago['transPago']) {
                 $pedid->compPago = $request->compPago['compPago'];
             } else {
                  return response()->json([
-                    'error' => 'monto incorrecto'
+                    'error' => 'monto incorrecto',
                  ],400);
             }
 
@@ -106,7 +108,6 @@ class PedidController extends Controller
 
             $output = [
                 'montoTotal' => $this->calculatePedidTotalTransferencia($request->cartItems),
-
             ];
             return response()->json($output);
         } catch (ErrorException $e) {
@@ -121,7 +122,7 @@ class PedidController extends Controller
         foreach ($items as $item) {
             $total += $this->calculateTotal($item['precio'],$item['cantidad'],$item['descuento'],$item['cupon_id']);
         }
-        return $total;
+        return round($total, 2);
     }
 
 }
